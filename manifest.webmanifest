@@ -1,0 +1,10 @@
+{
+  "name":"Cell Density - 细胞汇合度估计",
+  "short_name":"Cell Density",
+  "start_url":".",
+  "display":"standalone",
+  "background_color":"#0b0f14",
+  "theme_color":"#0b0f14",
+  "lang":"zh-CN",
+  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

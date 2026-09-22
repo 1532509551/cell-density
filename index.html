@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0f14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Cell Density">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+<title>Cell Density</title>
+</head>
+<body>
+<header>
+  <div>
+    <h1>🔬 Cell Density</h1>
+    <p>细胞汇合度估计</p>
+  </div>
+  <button id="installHelp" class="ghost">安装到 iPhone</button>
+</header>
+
+<main>
+<section class="card">
+  <label class="upload">
+    <input id="file" type="file" accept="image/*">
+    <span>📷 选择显微镜图片</span>
+    <small>照片只在本机浏览器中处理，不上传服务器</small>
+  </label>
+</section>
+
+<section class="card">
+  <div class="imageGrid">
+    <div><h3>原图</h3><canvas id="original"></canvas></div>
+    <div><h3>分析图</h3><canvas id="resultCanvas"></canvas></div>
+  </div>
+</section>
+
+<section class="card controls">
+  <div class="row">
+    <label>识别敏感度 <b id="sensText">50</b></label>
+    <input id="sensitivity" type="range" min="1" max="100" value="50">
+  </div>
+  <button id="analyze" class="primary" disabled>开始估计</button>
+</section>
+
+<section id="results" class="card hidden">
+  <div class="bigResult">
+    <span>估计汇合度</span>
+    <strong id="confluence">--%</strong>
+    <small>校准范围：40–90%</small>
+  </div>
+  <div class="metrics">
+    <div><span>最接近参考</span><b id="nearest">--</b></div>
+    <div><span>纹理覆盖</span><b id="coverage">--</b></div>
+    <div><span>匹配距离</span><b id="distance">--</b></div>
+  </div>
+  <p class="note">默认参考：40%、50%、70%、80%、90%。右下角参考图未参与校准。</p>
+</section>
+
+<section class="card">
+  <h3>参考标准</h3>
+  <div class="refs">
+    <span>40%</span><span>50%</span><span>70%</span><span>80%</span><span>90%</span>
+  </div>
+  <p class="note">这是图像校准估计，不是经过实验验证的医学/科研测量仪器。不同显微镜、倍率、曝光和细胞系可能造成偏差。</p>
+</section>
+</main>
+
+<div id="modal" class="modal hidden">
+ <div class="modalBox">
+  <button id="closeModal" class="close">×</button>
+  <h2>安装到 iPhone</h2>
+  <ol>
+   <li>用 <b>Safari</b> 打开这个网页。</li>
+   <li>点击底部的 <b>分享</b> 按钮。</li>
+   <li>选择 <b>添加到主屏幕</b>。</li>
+   <li>点击“添加”。</li>
+  </ol>
+  <p>之后会像普通 App 一样从 iPhone 主屏幕打开。</p>
+ </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
